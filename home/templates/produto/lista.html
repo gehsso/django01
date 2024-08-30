@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block titulo %} Produto {% endblock %}
+
+{% block h1 %} Listagem de Produtos {% endblock %}
+
+{% block conteudo %}
+<a href="{% url 'form_produto' %}">Novo Produto</a> <br><br>
+<table border="1" width="400">
+
+            <tr>
+                <th> Código</th>
+                <th>Descrição</th>
+                <th>Valor (R$)</th>
+            </tr>
+
+         {% for item in lista %}
+            <tr>
+                <td>{{item.ID}}</td>
+                <td>{{item.nome}}</td>
+                <td>{{item.preco}}</td>
+            </tr>
+      {% endfor %}
+
+
+            </table>
+
+{% endblock %}
+
+
