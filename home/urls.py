@@ -1,30 +1,20 @@
-"""
-URL configuration for pweb project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name="index"),
-    path('home/sobre', views.sobre, name="sobre"),
-    path('home/contato', views.contato, name="contato"),
+    path('', views.index, name="principal"),
+    path('sobre', views.sobre, name="sobre"),
     path('perfil/<str:usuario>/', views.perfil, name='perfil'),
-    path('diasemana/<int:dia>/', views.diasemana, name='perfil'),
-    path('home/produto', views.produto, name='produto'),
-    path('home/form_produto', views.form_produto, name='form_produto'),
+    path('teste/<int:codigo>/<str:nome>/', views.teste, name='teste'),
+
+    path('produto', views.produto, name='produto'),
+    path('form_produto', views.form_produto, name='form_produto'),
+    path('editar/<int:pk>/', views.editar_produto, name='editar_produto'),
+    path('remover/<int:pk>/', views.remover_produto, name='remover_produto'),
+    path('detalhes/<int:pk>/', views.detalhes_produto, name='detalhes_produto'),
+    path('listagem', views.listagem_produto, name='listagem_produto'),
+    path('qtde_produto/', views.qtde_produto, name='qtde_produto'),
+    path('relatorio/', views.relatorio_produto, name='relatorio_produto'),
 
 ]
+
